@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
-from analyzer import analyze_job
-from scraper import get_jobs
-from database import init_db
-from stats import count_skills
+
+from service.analyzer import analyze_job
+from service.scraper import get_jobs
+from service.stats import count_skills
+from db.database import init_db
 
 app = Flask(__name__)
 
