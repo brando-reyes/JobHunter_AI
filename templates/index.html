@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Job Analyzer</title>
+</head>
+
+<body>
+
+<h1>AI Job Analyzer</h1>
+
+<form method="POST">
+
+<textarea name="description" rows="10" cols="60"
+placeholder="Pega aquí la descripción del trabajo"></textarea>
+
+<br><br>
+
+<button type="submit">Analizar</button>
+
+</form>
+
+<h2>Habilidades detectadas</h2>
+
+<ul>
+{% for skill in skills %}
+<li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+<h2>Empleos encontrados</h2>
+
+<ul>
+{% for job in jobs %}
+
+<li>
+
+<strong>{{ job.title }}</strong>
+
+<br>
+
+Skills detectadas:
+
+<ul>
+{% for skill in job.skills %}
+<li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+</li>
+
+<br>
+
+{% endfor %}
+</ul>
+
+<h2>Top habilidades mas demandadas</h2>
+
+<ol>
+{% for skills, count in top_skills %}
+<li>{{ skills }} ({{ count }})</li>
+{% endfor %}
+</ol>
+
+</body>
+</html>
